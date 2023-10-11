@@ -17,5 +17,8 @@ day hour where max sales happend,most sold product,date
 -we get fact files from source location (hadoop) (can try with s3 also)
 -DQ CHECKS => data cleaning => logic transformation => write on hive => reporting teams consume to
                                                                              build dashboards
+#QUICK THOUGHTS
+1)make small lookup tables for city citycode,country countrycode
+
 
 

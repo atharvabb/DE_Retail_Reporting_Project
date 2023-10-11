@@ -1,0 +1,21 @@
+This is a Data Engineering retail reporting project
+we get dimension tables from database
+we get transaction data from hadoop file daily
+
+
+1)problem statement
+-find average distance from customer home to store per city per date.
+-cust sales per day daily
+-generate store sales report daily it should have daily sale per store,items sold,
+day hour where max sales happend,most sold product,date
+-sales person total sales made per day and incentivice them
+
+
+2)architecture-
+-pipeline runs daily as we need daily reports
+-dimension tables are on mysql we take it and write on hadoop with scd type 2
+-we get fact files from source location (hadoop) (can try with s3 also)
+-DQ CHECKS => data cleaning => logic transformation => write on hive => reporting teams consume to
+                                                                             build dashboards
+
+

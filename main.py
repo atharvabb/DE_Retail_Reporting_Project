@@ -1,16 +1,19 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import resources.dev.config as conf
+from src.main.utility.logger import *
+from src.main.utility.spark_session_create import *
+from src.main.utility.spark_reader_file import *
+import logging
+from pyspark.sql.types import *
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+spark = spark_session_create(conf.SparkConfigurations)
+dataframe = spark_reader_file(
+     sparksession=spark,
+     format="csv",
+     isheader=True,
+     isinferSchema=True,
+     location="E:\\sample_today.txt"
+ )
+dataframe.show()
+#dataframe.show()

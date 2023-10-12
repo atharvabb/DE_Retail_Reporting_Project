@@ -19,6 +19,8 @@ day hour where max sales happend,most sold product,date
                                                                              build dashboards
 #QUICK THOUGHTS
 1)make small lookup tables for city citycode,country countrycode
+2)we are using date control file concept for t-1 data processing
+it helps to verify,log,track
 
 
 

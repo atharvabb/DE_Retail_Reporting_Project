@@ -7,10 +7,12 @@ os.environ["JAVA_HOME"] = "E:\\jdk-20"
 os.environ["SPARK_HOME"] = "C:\\Spark\\spark"
 def spark_session_create(sparkConfigs:dict):
      try:
+        #Setting properties
         sparkconf = SparkConf()
         for conf in sparkConfigs.items():
             sparkconf.set(conf[0],conf[1])
-        spark = SparkSession.builder.config(conf=sparkconf).getOrCreate()
+
+        spark = SparkSession.builder.config(conf=sparkconf).enableHiveSupport().getOrCreate()
         logger.mylogger.info(f"Spark Session Created - {spark}")
         return spark
      except:

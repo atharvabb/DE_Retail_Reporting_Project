@@ -1,11 +1,8 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType
-import os
-from pyspark import SparkConf
 from src.main.utility import logger
 
 def spark_reader_file(sparksession:SparkSession,format:str,isheader:bool,isinferSchema:bool,
-                      location:str,schema="",):
+                      location:str,schema=None,):
     if format=="parquet":
         dataframe = sparksession.read.option("path", location).load()
         return dataframe
